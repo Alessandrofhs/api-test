@@ -23,7 +23,18 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
     ];
-
+    public function pockets()
+    {
+        return $this->hasMany(UserPocket::class);
+    }
+    public function incomes()
+    {
+        return $this->hasMany(Income::class);
+    }
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
